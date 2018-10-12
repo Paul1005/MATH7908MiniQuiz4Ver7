@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Main {
     private static MatrixMultiplier matrixMultiplier = new MatrixMultiplier();
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(new FileReader("mq4data7.csv"));
         ArrayList<ArrayList<Float>> augmentedMatrix = new ArrayList<>();
         int matrixNum = 0;
@@ -20,7 +20,7 @@ public class Main {
             String[] line = sc.nextLine().split(",");
             if (line[0].startsWith("#")) {
                 if (matrixNum > 0) {
-                    System.out.println(Arrays.toString(matrixMultiplier.solveEquations(augmentedMatrix)));
+                    System.out.println(matrixMultiplier.solveEquations(augmentedMatrix));
                 }
                 augmentedMatrix = new ArrayList<>();
                 matrixNum++;
